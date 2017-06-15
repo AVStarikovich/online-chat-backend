@@ -1,6 +1,9 @@
-const mongoose = requier('mongoose');
+const mongoose = require('mongoose');
 
 const appConfig = require('../config');
 
-mongoose.connect(appConfig.mongo.url + appConfig.mongo.port);
+mongoose.Promise = Promise;
+
+mongoose.connect(appConfig.mongodb.url);
+
 module.exports = mongoose.connection;

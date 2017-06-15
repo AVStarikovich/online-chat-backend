@@ -1,6 +1,9 @@
 module.exports = {
-  mongo: {
-    url: 'hhtp://localhost:',
-    port: '27017',
+  server: {
+    port: 3000
+  },
+  mongodb: {
+    url: 'mongodb://localhost/',
+    port: ':27017',
   }
 };
