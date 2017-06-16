@@ -1,6 +1,6 @@
 const user = require('./user');
 
-module.exports = function(app) {
+module.exports = app => {
 
   app.use('/api/user', user);
 

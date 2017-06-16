@@ -11,5 +11,8 @@ fs.readdirSync(path.join(__dirname))
 module.exports = new Promise((resolve, reject) => {
   db.on('error', (err) => reject(err));
 
-  db.once('open', () => resolve(db));
+  db.once('open', () => {
+    console.log('mongoDB is connected');
+    resolve(db)
+  });
 });
