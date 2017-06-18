@@ -1,6 +1,6 @@
-const user = require('./user');
+import user from './user';
 
-module.exports = app => {
+export default app => {
 
   app.use('/api/user', user);
 

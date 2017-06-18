@@ -1,28 +1,15 @@
-const mongoose = require('mongoose');
-const crypto = require('crypto');
+import mongoose from 'mongoose';
 
 let Schema = new mongoose.Schema({
-  login: { type: String, require: true },
-  password: { type: String, require: true },
-  created: { type: Date },
-  lastAction: { type: Date }
+  username: { type: String, require: true, unique: true },
+  password: { type: String },
+  created: { type: Date, default: Date.now() },
+  lastActivity: { type: Date, default: Date.now() }
 });
 
-Schema.statics.addUser = (login = '111', pass = '111') => {
-  let password = crypto.createHash('md5').update(pass).digest('hex');
-  let User = mongoose.model('User', Schema);
-  let user = new User({
-    login,
-    password,
-    created: Date.now(),
-    lastAction: Date.now(),
-  });
-
-  return user.save();
-};
-
-Schema.methods.updateActivity = (some) => {
-  console.log('some in user model', some);
+Schema.methods.updateActivity = async function() {
+  this.lastActivity = Date.now();
+  return this.save();
 };
 
 module.exports = mongoose.model('User', Schema);

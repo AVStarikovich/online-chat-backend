@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const appConfig = require('../config');
+import appConfig from '../config';
 
 mongoose.Promise = Promise;
 
 mongoose.connect(appConfig.mongodb.url);
 
-module.exports = mongoose.connection;
+export default mongoose.connection;

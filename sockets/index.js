@@ -1,7 +1,7 @@
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
 
-module.exports = io => {
+export default io => {
   fs.readdirSync(path.join(__dirname))
     .forEach((fileName) => {
       if (fileName === 'index.js') return;

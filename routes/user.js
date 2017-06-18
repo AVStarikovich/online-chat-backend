@@ -1,6 +1,13 @@
-const express = require('express');
+import express from 'express';
+
+import userCtrl from '../controllers/user.controller';
+
 const router = express.Router();
 
-router.get('', (req, res, next) => res.send('<h1>User</h1>'));
+/***********************
+ * URL: /api/user
+ ***********************/
 
-module.exports = router;
+router.put('/', userCtrl.register.bind(userCtrl));
+
+export default router;
