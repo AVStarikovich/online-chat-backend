@@ -1,13 +1,11 @@
-import Utils from './utils';
+import utils from './utils';
 
 import User from '../models/user';
 
-export default new class UserService extends Utils{
-  constructor() { super() }
-
+export default new class UserService{
   async createUser({ username, password }) {
-    let user = await new User({ username }).save();
-    user.password = this.utils.createHmac(password);
+    let user = new User({ username });
+    user.password = utils.createHmac(password);
     return user.save();
   }
 }

@@ -4,7 +4,7 @@ import socket from 'socket.io';
 import bodyParser from 'body-parser';
 import expressValidator from 'express-validator';
 
-import { mongoDataBase } from './models';
+import mongoDataBase from './models';
 import routing from './routes';
 import socketing from './sockets';
 
