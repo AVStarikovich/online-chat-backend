@@ -17,4 +17,15 @@ export default new class UserController extends BaseController {
       next();
     } catch(err) { next(errors.user.default.ex(err)) }
   }
+
+  async getUserByUsername(req, res, next) {
+    try {
+      req.checkParams('username').notEmpty();
+
+      await this.getValidationResult(req);
+      let user = await userService.findUserByUsername(req.params.username);
+      req.dataOut = this.getFields(user, { of: 'user' });
+      next()
+    } catch(err) { next(errors.user.default.ex(err)) }
+  }
 }

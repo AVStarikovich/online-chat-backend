@@ -12,7 +12,7 @@ import config from './config';
 
 const app = express();
 const server = http.Server(app);
-const io = socket(server, { origins: config.socket.origins});
+const io = socket(server, { origins: config.socket.origins });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
