@@ -66,6 +66,4 @@ const deepAssign = object => {
   assignEx(object);
 };
 
-deepAssign(errList);
-
-export default errList;
+export const errors = deepAssign(errList);

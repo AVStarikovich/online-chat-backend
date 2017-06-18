@@ -1,7 +1,7 @@
 import userService from '../services/user';
-import errors from '../services/errors';
+import { errors } from '../services/errors';
 
-import BaseController from './base.controller';
+import { BaseController } from './base.controller';
 
 export default new class UserController extends BaseController {
   constructor() { super() }

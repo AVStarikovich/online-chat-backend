@@ -1,4 +1,4 @@
-export default class BaseController{
+export class BaseController{
   getValidationResult(req) {
     return req.getValidationResult()
       .then(result => {

@@ -1,5 +1,5 @@
-import path from 'path';
-import fs from 'fs';
+import * as path from 'path';
+import * as fs from 'fs';
 import db from '../services/mongoose';
 
 fs.readdirSync(path.join(__dirname))
@@ -8,8 +8,8 @@ fs.readdirSync(path.join(__dirname))
     require(path.join(__dirname, fileName));
   });
 
-export default new Promise((resolve, reject) => {
-  db.on('error', (err) => reject(err));
+export const mongoDataBase = new Promise((resolve, reject) => {
+  db.on('error', (err:Error) => reject(err));
 
   db.once('open', () => {
     console.log('mongoDB is connected');

@@ -1,14 +1,14 @@
-import { express } from 'express';
-import http from 'http';
-import socket from 'socket.io';
-import bodyParser from 'body-parser';
-import expressValidator from 'express-validator';
+import * as express from 'express';
+import * as http from 'http';
+import { socket } from 'socket.io';
+import * as bodyParser from 'body-parser';
+import * as expressValidator from 'express-validator';
 
 import { mongoDataBase } from './models';
 import routing from './routes';
 import socketing from './sockets';
 
-import config from './config';
+import * as config from './config';
 
 const app = express();
 const server = http.Server(app);
