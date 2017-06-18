@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build:live",
+    "start": "npm run babel-node",
     "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./server.ts",
     "babel-node": "nodemon server.js --exec babel-node --presets=env"
   },
@@ -27,9 +27,8 @@
     "socket.io": "^2.0.3"
   },
   "devDependencies": {
-    "@types/node": "^7.0.31",
-    "nodemon": "^1.11.0",
-    "ts-node": "^3.0.6",
-    "typescript": "^2.3.4"
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "nodemon": "^1.11.0"
   }
 }
